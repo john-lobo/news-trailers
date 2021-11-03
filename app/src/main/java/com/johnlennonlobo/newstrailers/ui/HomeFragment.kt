@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.johnlennonlobo.newstrailers.MainActivity
 import com.johnlennonlobo.newstrailers.R
+import com.johnlennonlobo.newstrailers.viewmodel.HomeViewModel
 import javax.inject.Inject
 
 class HomeFragment : Fragment() {
@@ -28,8 +29,6 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.home_fragment, container, false)
-        viewModel.getTrending()
-
         return view
     }
 
