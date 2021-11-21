@@ -38,6 +38,9 @@ class HomeViewModel @Inject constructor(
     private val _isLoading: MutableLiveData<Boolean>? = MutableLiveData()
     val isLoading: LiveData<Boolean>? = _isLoading
 
+    init {
+        getlistsOfMovies()
+    }
 
     fun getlistsOfMovies() {
         showErrorMessage(false)
@@ -47,9 +50,9 @@ class HomeViewModel @Inject constructor(
 
                     when (result) {
                         is NetworkResponse.Success -> {
-                            _isLoading?.value = false
-                            _errorMessageVisibility?.value = false
-                            _listOfMovies?.value = result.body
+                            _isLoading?.postValue(false)
+                            _errorMessageVisibility?.postValue(false)
+                            _listOfMovies?.postValue(result.body)
 
                         }
                         is NetworkResponse.NetworkError -> {
